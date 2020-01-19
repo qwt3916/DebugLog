@@ -1,5 +1,5 @@
-#ifndef DEBUGLOG_H
-#define DEBUGLOG_H
+#ifndef DEBUGLOG_H_
+#define DEBUGLOG_H_
 
 #include <stdio.h>
 
@@ -16,15 +16,17 @@
 
 //#define LOGLEVEL LOGLEVELALL
 
-#define LOG_I(format,...)	printf ("\033[37m[%s:%s:%d] "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//infomation
-#define LOG_W(format,...)	printf ("\033[33m[%s:%s:%d] W: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//warning
-#define LOG_E(format,...)	printf ("\033[31m[%s:%s:%d] E: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//error
+#define LOG_P(format,...)	printf(format, ##__VA_ARGS__)
 
-#define FLOG_I(file,format,...)	fprintf(file,"[%s:%s:%d] "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//infomation
+#define LOG_I(format,...)	printf("\033[37m[%s:%s:%d] I: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//infomation
+#define LOG_W(format,...)	printf("\033[33m[%s:%s:%d] W: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//warning
+#define LOG_E(format,...)	printf("\033[31m[%s:%s:%d] E: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//error
+
+#define FLOG_I(file,format,...)	fprintf(file,"[%s:%s:%d] I: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//infomation
 #define FLOG_W(file,format,...)	fprintf(file,"[%s:%s:%d] W: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//warning
 #define FLOG_E(file,format,...)	fprintf(file,"[%s:%s:%d] E: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//error
 
-#define SLOG_I(str,format,...)	sprintf(str,"[%s:%s:%d] "forma, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//infomation
+#define SLOG_I(str,format,...)	sprintf(str,"[%s:%s:%d] I: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//infomation
 #define SLOG_W(str,format,...)	sprintf(str,"[%s:%s:%d] W: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//warning
 #define SLOG_E(str,format,...)	sprintf(str,"[%s:%s:%d] E: "format, __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__)//error
 
